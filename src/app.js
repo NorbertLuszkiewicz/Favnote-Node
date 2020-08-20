@@ -20,11 +20,17 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+const MemoryStore = require("memorystore")(session);
+
 app.use(
   session({
     secret: "Norbert",
     resave: false,
     saveUninitialized: true,
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+      checkPeriod: 86400000, // prune expired entries every 24h
+    }),
   })
 );
 app.use(express.urlencoded({ extended: true }));
