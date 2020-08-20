@@ -1,1 +1,1 @@
-web:nodemon --optimize_for_size --max_old_space_size=460 src/app.js
+web:node src/app.js
