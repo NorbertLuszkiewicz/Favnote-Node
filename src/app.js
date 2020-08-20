@@ -26,6 +26,9 @@ const MemoryStore = require("memorystore")(session);
 app.use(
   session({
     secret: "Norbert",
+    heroku, 
+    config: set,
+    LOG_CONCURRENCY=true,
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 86400000 },
