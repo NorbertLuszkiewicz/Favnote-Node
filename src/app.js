@@ -28,7 +28,10 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 86400000 },
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    store: new MongoStore({
+      url: "mongodb+srv://admin:admin123@cluster0.ho4na.mongodb.net/test",
+      mongooseConnection: mongoose.connection,
+    }),
   })
 );
 app.use(express.urlencoded({ extended: true }));
