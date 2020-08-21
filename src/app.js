@@ -29,7 +29,6 @@ app.use(
     saveUninitialized: true,
     cookie: { maxAge: 86400000 },
     store: new MongoStore({
-      url: "mongodb+srv://admin:admin123@cluster0.ho4na.mongodb.net/test",
       mongooseConnection: mongoose.connection,
     }),
   })
